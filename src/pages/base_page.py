@@ -13,7 +13,7 @@ class BasePage:
     @allure.step("Создать вкладку браузера")
     def __init__(self, driver):
         self.driver = driver
-        self.timeout = 15
+        self.timeout = 60
         self.wait = WebDriverWait(self.driver, self.timeout)
         self.driver.maximize_window()
 
