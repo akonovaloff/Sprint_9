@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from src.helpers.user_data import UserData
 from src.pages.create_account_page import CreateAccountPage, Urls
+import tempfile
 
 @pytest.fixture(params=["chrome"])
 def driver(request):
@@ -11,10 +12,11 @@ def driver(request):
         driver = webdriver.Firefox(options=options)
     else:
         options = webdriver.ChromeOptions()
-        #options.add_argument("--headless")
+        options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--disable-gpu")
+        options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")
         driver = webdriver.Chrome(options=options)
 
     yield driver
