@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","2971","Создание аккаунта","tests","Tue Apr 08 20:49:05 GET 2025","passed","Tue Apr 08 20:49:08 GET 2025","TestCreateAccount","test_create_account","",""
-"","3560","Создание рецепта","tests","Tue Apr 08 20:49:09 GET 2025","passed","Tue Apr 08 20:49:13 GET 2025","TestCreateRecipe","test_create_recipe","",""
-"","1235","Авторизация пользователя ","tests","Tue Apr 08 20:49:08 GET 2025","passed","Tue Apr 08 20:49:09 GET 2025","TestAuthorisation","test_authorisation","",""
+"","1204","Авторизация пользователя ","tests","Wed Apr 09 15:39:39 GET 2025","passed","Wed Apr 09 15:39:40 GET 2025","TestAuthorisation","test_authorisation","",""
+"","4675","Создание рецепта","tests","Wed Apr 09 15:39:40 GET 2025","passed","Wed Apr 09 15:39:45 GET 2025","TestCreateRecipe","test_create_recipe","",""
+"","2536","Создание аккаунта","tests","Wed Apr 09 15:39:36 GET 2025","passed","Wed Apr 09 15:39:39 GET 2025","TestCreateAccount","test_create_account","",""
