@@ -37,7 +37,7 @@ class RecipesPage(BasePage):
     @allure.step("Клик по кнопке «Создать рецепт»")
     def click_on_the_create_recipe_button(self):
         self.click_on(self.CREATE_RECIPE_BUTTON)
-        self.wait_for_element_to_be_invisible(self.CREATE_RECIPE_BUTTON)
+        self.wait_for_element_to_be_visible(self.CREATE_RECIPE_BUTTON)
 
     @allure.step("Ввести текст в поле «Название рецепта»")
     def fill_the_recipe_name_input(self, text: str):
