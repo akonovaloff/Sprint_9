@@ -87,4 +87,5 @@ class RecipesPage(BasePage):
         self.send_keys(self.RECIPE_DESCRIPTION_INPUT, text=text)
 
     def get_recipe_title(self) -> str:
+        self.wait_for_element_to_be_visible(self.RECIPE_TITLE)
         return self.get_element_text(self.RECIPE_TITLE)

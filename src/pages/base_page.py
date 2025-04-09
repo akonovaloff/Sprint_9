@@ -4,7 +4,8 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 import allure
 from selenium.webdriver.common.by import By
-
+from contextlib import suppress
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 class BasePage:
     driver: WebDriver
@@ -123,8 +124,18 @@ class BasePage:
         self.wait.until(ec.text_to_be_present_in_element(locator, text))
         return self.find_by_text(text)
 
-    def element_is_visible(self, locator):
-        return self.find_element(locator).is_displayed()
+    def element_is_visible(self, locator, timeout=0) -> bool:
+        """Оптимизированная версия с suppress."""
+        with suppress(NoSuchElementException, TimeoutException):
+            element = (
+                WebDriverWait(self.driver, timeout).until(
+                    ec.visibility_of_element_located(locator)
+                )
+                if timeout > 0
+                else self.find_element(locator)
+            )
+            return element.is_displayed()
+        return False
 
     @allure.step("Надеюсь, кто-то знает, зачем нужен этот шаг")
     def make_element_to_be_visible_by_java_script(self, locator):
